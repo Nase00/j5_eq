@@ -1,0 +1,11 @@
+{
+  "name": "j5-eq",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Sean Owieck",
+  "license": "MIT"
+}
