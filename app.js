@@ -4,16 +4,12 @@ const board = new five.Board();
 board.on('ready', () => {
   console.log('Connected!');
 
-  const mic = new five.Sensor('A5');
-  const ledThree = new five.Led(3);
-  const ledFive = new five.Led(5);
-  const ledSix = new five.Led(6);
+  const mic = new five.Sensor('A0');
+  const leds = new five.Leds([3, 5, 6]);
 
   mic.on('data', () => {
-    const soundValue = mic.value * 5;
+    const soundValue = mic.value >> 2;
 
-    ledThree.brightness(soundValue);
-    ledFive.brightness(soundValue);
-    ledSix.brightness(soundValue);
+    leds.brightness(soundValue);
   });
 });
