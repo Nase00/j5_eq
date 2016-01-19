@@ -1,15 +1,19 @@
-const five = require("johnny-five");
+const five = require('johnny-five');
 const board = new five.Board();
 
-board.on("ready", function() {
-  console.log("Connected!");
+board.on('ready', () => {
+  console.log('Connected!');
 
-  const mic = new five.Sensor("A0");
-  const leds = new five.Leds([5, 6, 9]);
+  const mic = new five.Sensor('A5');
+  const ledThree = new five.Led(3);
+  const ledFive = new five.Led(5);
+  const ledSix = new five.Led(6);
 
-mic.on("data", function() {
-    const soundValue = this.value * 5;
+  mic.on('data', () => {
+    const soundValue = mic.value * 5;
 
-    leds.fade(soundValue, 200);
+    ledThree.brightness(soundValue);
+    ledFive.brightness(soundValue);
+    ledSix.brightness(soundValue);
   });
 });
